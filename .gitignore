@@ -1,0 +1,67 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Jupyter Notebook checkpoints and caches
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+.ipynb_checkpoints/
+.virtual_documents/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env
+ENV/
+env.bak/
+venv.bak/
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Unrelated project files in workspace (ignored for clean Play Store repo)
+Global EV Data 2024.csv
+heart-disease.csv
+Untitled.ipynb
+inspect_notebook*.py
+create_final_notebook.py
+organize_project.py
+check_imports.py
+check_ml.py
+dump_gpsa_notebook.py
+inspect_notebook_details.py
