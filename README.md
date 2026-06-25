@@ -40,13 +40,11 @@ Google-Play-Store-Analytics/
 ├── data/                           # Folder containing play store CSV datasets
 │   ├── Play Store Data.csv         # Raw applications dataset
 │   └── User Reviews.csv            # Raw user reviews dataset
-├── docs/                           # Documentation and compiled dashboard reports
-│   ├── data_dictionary.md          # Placeholder detailing dataset columns
-│   ├── business_requirements.md    # Placeholder detailing analysis objectives
-│   ├── web page.html               # Main interactive compiled HTML dashboard
-│   └── *.html                      # Individual interactive Plotly charts
+├── docs/                           # Documentation and analytical reports
+│   ├── data_dictionary.md          # Description of dataset columns
+│   ├── business_requirements.md    # Outline of key analytical objectives
+│   └── task1_summary.csv           # Table summary exported from Task 1
 └── notebooks/                      # Jupyter Notebook files
-    ├── Google_Play_Store_Analytics_Final.ipynb  # Comprehensive master analysis notebook
     ├── Google_Play_Store_Analytics.ipynb        # Task-specific analysis notebook
     ├── Analysis3.ipynb                          # Legacy dashboard plotting notebook
     ├── Analysis2.ipynb                          # Legacy pipeline notebook
@@ -141,12 +139,8 @@ To set up the project locally, follow these steps:
 
 2. **Run the Notebook**:
    * Navigate to the `notebooks/` folder inside the Jupyter browser.
-   * Open [Google_Play_Store_Analytics_Final.ipynb](file:///c:/Users/Prathamesh/Desktop/Google_Playstore_Project/notebooks/Google_Play_Store_Analytics_Final.ipynb).
-   * Click **Cell -> Run All** from the top menu to run the entire analysis.
-
-3. **View the Compiled Dashboard**:
-   * Open the [docs/](file:///c:/Users/Prathamesh/Desktop/Google_Playstore_Project/docs) folder.
-   * Double-click `web page.html` to open and interact with the full analytics dashboard directly in your web browser.
+   * Open [Google_Play_Store_Analytics.ipynb](file:///c:/Users/Prathamesh/Desktop/Google_Playstore_Project/notebooks/Google_Play_Store_Analytics.ipynb).
+   * Click **Cell -> Run All** from the top menu to run the analysis.
 
 ---
 
