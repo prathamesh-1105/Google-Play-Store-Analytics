@@ -57,8 +57,8 @@ Google-Play-Store-Analytics/
 
 ## ✅ Tasks Completed
 
-### 🎯 Task 1: [Placeholder]
-* *Description/Objective of Task 1 will be documented here.*
+### 🎯 Task 1: Top Categories Analysis [Completed]
+* Analysed and visualized average rating and total review counts for the top 10 app categories based on installs under specific filters.
 
 ### 🎯 Task 2: [Placeholder]
 * *Description/Objective of Task 2 will be documented here.*
@@ -74,6 +74,32 @@ Google-Play-Store-Analytics/
 
 ### 🎯 Task 6: [Placeholder]
 * *Description/Objective of Task 6 will be documented here.*
+
+---
+
+## 📈 Task 1: Top Categories Analysis
+
+### Objective
+Compare the average user rating and total review counts of the top 10 app categories (ranked by total installations) under strict business requirements and filtering rules.
+
+### Filters Applied
+* **Rating**: $\ge$ 4.0
+* **Size**: $\ge$ 10 MB (converts the size text to megabytes, filtering out smaller apps)
+* **Last Updated**: Month of update must be January (e.g., `df["Last Updated"].dt.month == 1`)
+
+### Visualization Used
+An interactive grouped chart featuring a dual y-axis:
+* **Primary Y-Axis (Left)**: Average Rating (represented as blue bars, ranging from 0 to 4.5).
+* **Secondary Y-Axis (Right)**: Total Reviews (represented as a red line trace, ranging from 0 to 4.5 million).
+* **Scheduling Restriction**: The visualization is timezone-aware and only executes between 3:00 PM and 5:00 PM IST.
+
+![Task 1 Chart](screenshots/task1_chart.png)
+
+### Key Insights
+* **Highest Engagement**: The `FAMILY` category accumulated by far the highest number of reviews (~4.54 million), demonstrating exceptionally high user interaction under these conditions.
+* **Top Ratings**: `PERSONALIZATION` achieved the highest average rating of **4.47**, followed closely by `FAMILY` (4.40) and `EDUCATION` (4.40).
+* **Lowest Ratings**: `PHOTOGRAPHY` recorded the lowest average rating (**4.15**) among the top 10 categories.
+* **Review Disparity**: Categories like `SHOPPING` and `TOOLS` showed very low review totals under these filters, despite having high overall install volumes.
 
 ---
 
