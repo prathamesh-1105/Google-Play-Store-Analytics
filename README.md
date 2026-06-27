@@ -30,25 +30,34 @@ The analysis uses two primary datasets:
 
 ## 📁 Project Structure
 
+Each task's deliverables (such as CSV summaries, static charts, and interactive HTML plots) are organized and stored inside its corresponding subfolder under the `tasks/` directory.
+
 ```text
 Google-Play-Store-Analytics/
 ├── .gitignore                      # Git configuration to ignore temporary/cached files
 ├── README.md                       # Project documentation and guide
 ├── requirements.txt                # List of required python packages
-├── assets/                         # Folder for storing design and image assets
-├── screenshots/                    # Folder for saving dashboard screenshots
 ├── data/                           # Folder containing play store CSV datasets
 │   ├── Play Store Data.csv         # Raw applications dataset
 │   └── User Reviews.csv            # Raw user reviews dataset
-├── docs/                           # Documentation and analytical reports
-│   ├── data_dictionary.md          # Description of dataset columns
-│   ├── business_requirements.md    # Outline of key analytical objectives
-│   └── task1_summary.csv           # Table summary exported from Task 1
-└── notebooks/                      # Jupyter Notebook files
-    ├── Google_Play_Store_Analytics.ipynb        # Task-specific analysis notebook
-    ├── Analysis3.ipynb                          # Legacy dashboard plotting notebook
-    ├── Analysis2.ipynb                          # Legacy pipeline notebook
-    └── Analysis.ipynb                           # Legacy Tkinter experiment notebook
+├── notebooks/                      # Jupyter Notebook files
+│   ├── Google_Play_Store_Analytics.ipynb        # Main analysis notebook
+│   ├── Analysis3.ipynb                          # Legacy dashboard plotting notebook
+│   ├── Analysis2.ipynb                          # Legacy pipeline notebook
+│   └── Analysis.ipynb                           # Legacy Tkinter experiment notebook
+└── tasks/                          # Folder containing task-specific deliverables
+    ├── Task_1/                     # Deliverables for Task 1
+    │   ├── task1_chart.html        # Interactive chart (HTML)
+    │   ├── task1_chart.png         # Static chart (PNG)
+    │   └── task1_summary.csv       # Summary data table (CSV)
+    ├── Task_2/                     # Deliverables for Task 2
+    │   ├── task2_chart.html        # Interactive chart (HTML)
+    │   ├── task2_chart.png         # Static chart (PNG)
+    │   └── task2_summary.csv       # Summary data table (CSV)
+    ├── Task_3/                     # Placeholder for Task 3
+    ├── Task_4/                     # Placeholder for Task 4
+    ├── Task_5/                     # Placeholder for Task 5
+    └── Task_6/                     # Placeholder for Task 6
 ```
 
 ---
@@ -91,7 +100,7 @@ An interactive grouped chart featuring a dual y-axis:
 * **Secondary Y-Axis (Right)**: Total Reviews (represented as a red line trace, ranging from 0 to 4.5 million).
 * **Scheduling Restriction**: The visualization is timezone-aware and only executes between 3:00 PM and 5:00 PM IST.
 
-![Task 1 Chart](screenshots/task1_chart.png)
+![Task 1 Chart](tasks/Task_1/task1_chart.png)
 
 ### Key Insights
 * **Highest Engagement**: The `FAMILY` category accumulated by far the highest number of reviews (~4.54 million), demonstrating exceptionally high user interaction under these conditions.
