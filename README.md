@@ -73,11 +73,11 @@ Google-Play-Store-Analytics/
 ### 🎯 Task 3: Dual-Axis Category Analysis [Completed]
 * Compared average installations and estimated revenue for the top 3 categories of paid applications that satisfy specific size, length, rating, and version rules.
 
-### 🎯 Task 4: [Placeholder]
-* *Description/Objective of Task 4 will be documented here.*
+### 🎯 Task 4: Time Series Analysis of Total Installs [Completed]
+* Analyzed month-over-month growth of total installations for specific app categories, highlighting significant changes (>20%) with category translations.
 
-### 🎯 Task 5: [Placeholder]
-* *Description/Objective of Task 5 will be documented here.*
+### 🎯 Task 5: App Size vs Average Rating Analysis [Completed]
+* Visualized correlation between app size (MB) and average user rating using an interactive bubble chart with merged sentiment subjectivity metrics.
 
 ### 🎯 Task 6: [Placeholder]
 * *Description/Objective of Task 6 will be documented here.*
@@ -166,6 +166,74 @@ A grouped dual-axis chart comparing installations and revenue side-by-side:
 * **Family Installs & Revenue**: The `FAMILY` category generated ~$796,900 in revenue with an average of ~381,429 installations.
 * **Personalization Performance**: `PERSONALIZATION` generated ~$666,633 in revenue with an average of 670,000 installations.
 * **Exclusion of Free Apps**: Due to the minimum revenue filter, all Free apps (which make up the majority of the Play Store) were excluded, showing the performance of high-value paid apps.
+---
+
+## 📈 Task 4: Time Series Analysis of Total Installs
+
+### Objective
+Examine the month-over-month trend and growth of total installations for specific app categories using a professional time-series visualization.
+
+### Filters Applied
+* **Reviews**: App reviews count must be > 500.
+* **App Name Exclusions**: App names should not start with `X`, `Y`, or `Z`.
+* **App Name Character Filter**: App names should not contain the letter `S` (case-insensitive).
+* **Category Filter**: Category must begin with the letters `B`, `C`, or `E`.
+
+### Category Translations
+Translations were applied to show localized names on the chart:
+* **BEAUTY** $\rightarrow$ `सौंदर्य` (Hindi)
+* **BUSINESS** $\rightarrow$ `வணிகம்` (Tamil)
+* **DATING** $\rightarrow$ `Dating` (German)
+* *Note: The Dating category is not visible because it starts with 'D' and was filtered out by the B, C, E prefix rule.*
+
+### Visualization Used
+An interactive Plotly time-series line chart with markers, mapping total installs by month for each qualifying category.
+* **Growth Highlighting**: Points showing month-over-month installation growth of $>20\%$ are marked with distinct icons or callouts.
+* **Scheduling Restriction**: The visualization is timezone-aware and only executes between 6:00 PM and 9:00 PM IST.
+
+![Task 4 Chart](tasks/Task_4/task4_chart.png)
+
+### Key Insights
+* **Communication Leader**: The `COMMUNICATION` category recorded the highest volume of total installations across all months.
+* **Growth Fluctuations**: Significant month-over-month spikes ($>20\%$) occurred in multiple categories, highlighting periods of increased consumer demand or user updates.
+* **Filter Impact**: Restricting name prefixes (excluding X, Y, Z, and S) significantly limited the number of active apps evaluated in each category.
+
+---
+
+## 🫧 Task 5: App Size vs. Average Rating Bubble Chart
+
+### Objective
+Analyze the relationship between application size (in MB) and average rating using a multi-dimensional bubble chart that integrates user sentiment subjectivity.
+
+### Filters Applied
+* **Rating**: $\ge 3.5$
+* **Installs**: $> 50,000$
+* **Reviews**: $> 500$
+* **Categories**: `GAME`, `BEAUTY`, `BUSINESS`, `COMICS`, `COMMUNICATION`, `DATING`, `ENTERTAINMENT`, `EVENTS`, `SOCIAL`.
+* **App Name Filter**: App name must not contain the letter `S` (case-insensitive).
+* **Sentiment Subjectivity**: Average sentiment subjectivity of the app reviews must be $> 0.5$ (calculated by merging with the `User Reviews` dataset).
+
+### Category Translations & Styling
+* **BEAUTY** $\rightarrow$ `सौंदर्य` (Hindi)
+* **BUSINESS** $\rightarrow$ `வணிகம்` (Tamil)
+* **DATING** $\rightarrow$ `Dating` (German)
+* **Color Customization**: The `GAME` category is specifically highlighted in Pink (`#FF69B4`). Other categories are mapped to standard scales.
+
+### Visualization Used
+An interactive Plotly bubble chart:
+* **X-Axis**: App Size (in MB).
+* **Y-Axis**: Average user rating.
+* **Bubble Size**: Proportional to the total number of installations.
+* **Color**: Represents the category.
+* **Scheduling Restriction**: Timezone-aware check that only displays/renders between 5:00 PM and 7:00 PM IST.
+
+![Task 5 Chart](tasks/Task_5/task5_chart.png)
+
+### Key Insights
+* **Game Dominance**: The `GAME` category (highlighted in pink) contains the highest density of qualifying applications.
+* **Weak Size-Rating Correlation**: Application size (MB) is weakly correlated with user ratings; both small and large apps achieve high ratings.
+* **User Sentiment**: Filtering for subjectivity $>0.5$ shifts the dataset towards apps with more subjective, emotional reviews.
+* **Condition Exclusions**: No apps in the `BEAUTY`, `COMICS`, or `EVENTS` categories satisfied all strict constraints (e.g. installs $>50k$ and subjectivity $>0.5$), excluding them from the bubble plot.
 
 ---
 
