@@ -79,8 +79,8 @@ Google-Play-Store-Analytics/
 ### 🎯 Task 5: App Size vs Average Rating Analysis [Completed]
 * Visualized correlation between app size (MB) and average user rating using an interactive bubble chart with merged sentiment subjectivity metrics.
 
-### 🎯 Task 6: [Placeholder]
-* *Description/Objective of Task 6 will be documented here.*
+### 🎯 Task 6: Stacked Area Chart (Cumulative Installs) [Completed]
+* Analyzed monthly cumulative installations for qualifying categories starting with T or P, highlighting months with >25% growth and category translations.
 
 ---
 
@@ -234,6 +234,40 @@ An interactive Plotly bubble chart:
 * **Weak Size-Rating Correlation**: Application size (MB) is weakly correlated with user ratings; both small and large apps achieve high ratings.
 * **User Sentiment**: Filtering for subjectivity $>0.5$ shifts the dataset towards apps with more subjective, emotional reviews.
 * **Condition Exclusions**: No apps in the `BEAUTY`, `COMICS`, or `EVENTS` categories satisfied all strict constraints (e.g. installs $>50k$ and subjectivity $>0.5$), excluding them from the bubble plot.
+
+---
+
+## 📈 Task 6: Cumulative Installs Stacked Area Chart
+
+### Objective
+Visualize the monthly cumulative installations over time for specific app categories, highlighting key growth periods and translating category names.
+
+### Filters Applied
+* **Rating**: $\ge 4.2$
+* **App Name Exclusions**: App names should not contain any numeric digits (e.g. no numbers).
+* **Category Prefixes**: Category must begin with the letters `T` or `P` (e.g., `TOOLS`, `TRAVEL_AND_LOCAL`, `PERSONALIZATION`, `PRODUCTIVITY`, `PARENTING`).
+* **Reviews**: App reviews count must be $> 1000$.
+* **Application Size**: App size must be between 20 MB and 80 MB.
+
+### Category Translations
+Category names were translated into target languages:
+* **Travel & Local** $\rightarrow$ `Voyage et Local` (French)
+* **Productivity** $\rightarrow$ `Productividad` (Spanish)
+* **Photography** $\rightarrow$ `写真` (Japanese)
+* *Note: Photography (写真) starts with 'P' and is included. Travel & Local starts with 'T' and is included. Productivity starts with 'P' and is included.*
+
+### Visualization Used
+An interactive Plotly stacked area chart displaying the cumulative sum of installs by month for each translated category.
+* **MoM Growth Highlighting**: Points showing month-over-month growth exceeding $25\%$ are highlighted with visible visual indicators on the chart.
+* **Scheduling Restriction**: The visualization is timezone-aware and only executes and displays between 4:00 PM and 6:00 PM IST.
+
+![Task 6 Chart](tasks/Task_6/task6_chart.png)
+
+### Key Insights
+* **Productivity Surge**: The Spanish-translated `Productividad` category represents the largest cumulative installations under these constraints, reaching over 1.7 billion installations by August 2018.
+* **Photography Growth**: The Japanese-translated `写真` category accumulated over 691 million installations by August 2018, exhibiting multiple high-growth months.
+* **Parenting and Personalization**: `PARENTING` and `PERSONALIZATION` categories maintain steady but smaller cumulative volumes under these constraints.
+* **Identified Growth Points**: Multiple month-over-month growth spikes ($>25\%$) were successfully detected and highlighted, such as `Productividad` in June 2018 ($14,900\%$ growth) and `Voyage et Local` in April 2018 ($9,900\%$ growth).
 
 ---
 
