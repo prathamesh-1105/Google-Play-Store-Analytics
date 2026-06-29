@@ -65,3 +65,5 @@ check_imports.py
 check_ml.py
 dump_gpsa_notebook.py
 inspect_notebook_details.py
+
+.vercel
