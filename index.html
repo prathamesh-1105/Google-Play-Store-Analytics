@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Play Store Analytics | Interactive Portfolio Dashboard</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="An interactive Google Play Store data analytics dashboard built with Python, Pandas, and Plotly. Features business-rule-driven insights, visualizations, and clean preprocessing.">
+    <meta name="keywords" content="Data Analytics, Python, Pandas, Plotly, Jupyter, Vercel, Portfolio, Google Play Store">
+    <meta name="author" content="Prathamesh Kambli">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Decorative Mesh Gradients -->
+    <div class="mesh-gradient mesh-1"></div>
+    <div class="mesh-gradient mesh-2"></div>
+    <div class="mesh-gradient mesh-3"></div>
+
+    <!-- Frosted Glass Header Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm4.25 11l-5.5 3.5A.5.5 0 0 1 10 16V9a.5.5 0 0 1 .75-.43l5.5 3.5a.5.5 0 0 1 0 .86z" fill="url(#logoGradient)"/>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#3b82f6"/>
+                            <stop offset="1" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>PlayStore Analytics</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#dashboard" class="nav-link">Dashboard</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About Project</a>
+            </nav>
+            <a href="https://github.com/prathamesh-1105/Google-Play-Store-Analytics" target="_blank" rel="noopener noreferrer" class="btn-github">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <span>GitHub</span>
+            </a>
+            <button class="mobile-nav-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section / Landing Page -->
+    <section id="hero" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">Interactive BI Project</span>
+                <h1 class="hero-title">Google Play Store<br><span class="gradient-text">Analytics Dashboard</span></h1>
+                <p class="hero-subtitle">A professional business intelligence dashboard engineered with Python, Pandas, and Plotly. Powered by multi-stage data cleaning pipelines and robust business-rule constraints.</p>
+                <div class="hero-actions">
+                    <a href="#dashboard" class="btn btn-primary">View Dashboard</a>
+                    <a href="https://github.com/prathamesh-1105/Google-Play-Store-Analytics" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub Repository</a>
+                </div>
+            </div>
+
+            <!-- Stats Grid Panel -->
+            <div class="stats-panel">
+                <div class="stats-grid">
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon icon-blue">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4" ry="4"/><path d="M9 22V12h6v10"/></svg>
+                        </div>
+                        <div class="stat-value" data-target="10841">0</div>
+                        <div class="stat-label">Google Play Apps</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon icon-purple">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                        </div>
+                        <div class="stat-value" data-target="33">0</div>
+                        <div class="stat-label">Unique Categories</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon icon-emerald">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                        </div>
+                        <div class="stat-value" data-target="6">0</div>
+                        <div class="stat-label">Interactive Dashboards</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon icon-orange">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                        </div>
+                        <div class="stat-value" data-target="100">0%</div>
+                        <div class="stat-label">Plotly Visualizations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Interactive Analytics</span>
+                <h2 class="section-title">The Dashboards</h2>
+                <p class="section-subtitle">Examine the results of each analytical task. Click any card to launch the interactive Plotly interface loaded with direct business insights.</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Task 1 Card -->
+                <div class="dashboard-card glass-card">
+                    <div class="card-badge badge-blue">Task 1</div>
+                    <h3 class="card-title">Top Categories Analysis</h3>
+                    <p class="card-type">Grouped Dual-Axis Chart</p>
+                    <p class="card-desc">Compare ratings and reviews for the top 10 app categories based on installs. Scheduled between 3 PM and 5 PM IST.</p>
+                    <button class="btn-open-dashboard" data-task="1">Open Dashboard</button>
+                </div>
+
+                <!-- Task 2 Card -->
+                <div class="dashboard-card glass-card">
+                    <div class="card-badge badge-purple">Task 2</div>
+                    <h3 class="card-title">Interactive Choropleth Map</h3>
+                    <p class="card-type">Plotly Choropleth Map</p>
+                    <p class="card-desc">Visualize global installations across representative countries for the top 5 app categories. Scheduled between 6 PM and 8 PM IST.</p>
+                    <button class="btn-open-dashboard" data-task="2">Open Dashboard</button>
+                </div>
+
+                <!-- Task 3 Card -->
+                <div class="dashboard-card glass-card">
+                    <div class="card-badge badge-emerald">Task 3</div>
+                    <h3 class="card-title">Installs vs Estimated Revenue</h3>
+                    <p class="card-type">Grouped Dual-Axis Chart</p>
+                    <p class="card-desc">Compare average installations and estimated revenue for the top 3 paid categories. Scheduled between 1 PM and 2 PM IST.</p>
+                    <button class="btn-open-dashboard" data-task="3">Open Dashboard</button>
+                </div>
+
+                <!-- Task 4 Card -->
+                <div class="dashboard-card glass-card">
+                    <div class="card-badge badge-orange">Task 4</div>
+                    <h3 class="card-title">Time Series Install Growth</h3>
+                    <p class="card-type">Line Chart with Markers</p>
+                    <p class="card-desc">Analyze month-over-month growth of total installations for specific app categories. Scheduled between 6 PM and 9 PM IST.</p>
+                    <button class="btn-open-dashboard" data-task="4">Open Dashboard</button>
+                </div>
+
+                <!-- Task 5 Card -->
+                <div class="dashboard-card glass-card">
+                    <div class="card-badge badge-pink">Task 5</div>
+                    <h3 class="card-title">App Size vs Average Rating</h3>
+                    <p class="card-type">Multi-Dimensional Bubble Chart</p>
+                    <p class="card-desc">Analyze the correlation between size, rating, installs, and sentiment subjectivity. Scheduled between 5 PM and 7 PM IST.</p>
+                    <button class="btn-open-dashboard" data-task="5">Open Dashboard</button>
+                </div>
+
+                <!-- Task 6 Card -->
+                <div class="dashboard-card glass-card">
+                    <div class="card-badge badge-cyan">Task 6</div>
+                    <h3 class="card-title">Cumulative Installs Trend</h3>
+                    <p class="card-type">Stacked Area Chart</p>
+                    <p class="card-desc">Visualize monthly cumulative installations over time for specific app categories. Scheduled between 4 PM and 6 PM IST.</p>
+                    <button class="btn-open-dashboard" data-task="6">Open Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overlay Interactive Chart Viewer (Modal) -->
+    <div id="dashboardModal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-card">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-header-info">
+                    <span id="modalTaskBadge" class="modal-badge">Task 1</span>
+                    <h2 id="modalChartTitle" class="modal-title">Top Categories Analysis</h2>
+                    <span id="modalChartType" class="modal-subtitle">Grouped Dual-Axis Chart</span>
+                </div>
+                <button class="btn-close-modal" aria-label="Close Dashboard">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <!-- Chart Iframe Container -->
+                <div class="chart-container">
+                    <div id="chartLoader" class="loader-overlay">
+                        <div class="spinner"></div>
+                        <p>Loading Interactive Plotly Chart...</p>
+                    </div>
+                    <iframe id="chartIframe" src="" frameborder="0" loading="lazy"></iframe>
+                </div>
+
+                <!-- Sidebar Details -->
+                <div class="details-sidebar">
+                    <div class="detail-section">
+                        <h4 class="detail-sec-title">Objective</h4>
+                        <p id="detailObjective" class="detail-sec-text">Task objective text will be displayed here.</p>
+                    </div>
+
+                    <div class="detail-section">
+                        <h4 class="detail-sec-title">Business Rules & Filters</h4>
+                        <ul id="detailFilters" class="detail-sec-list">
+                            <li>Loading rules...</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <h4 class="detail-sec-title">Key Insights</h4>
+                        <ul id="detailInsights" class="detail-sec-list">
+                            <li>Loading insights...</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <h4 class="detail-sec-title">Assumptions</h4>
+                        <ul id="detailAssumptions" class="detail-sec-list">
+                            <li>Loading assumptions...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Engineering Highlights</span>
+                <h2 class="section-title">Features & Architecture</h2>
+                <p class="section-subtitle">Examine the core technical implementation details that drive this analytics workspace.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card glass-card">
+                    <div class="feature-icon icon-blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                    </div>
+                    <h3 class="feature-title">Business Rule Filtering</h3>
+                    <p class="feature-desc">Robust data selection logic enforcing strict thresholds for ratings, installs, reviews, and naming parameters before visual output.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card glass-card">
+                    <div class="feature-icon icon-purple">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <h3 class="feature-title">Interactive Plotly Charts</h3>
+                    <p class="feature-desc">All visualizations feature fully hoverable tooltips, legends, auto-resizing, and camera controls via Plotly JS rendering.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card glass-card">
+                    <div class="feature-icon icon-emerald">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <h3 class="feature-title">Revenue Analysis</h3>
+                    <p class="feature-desc">Sophisticated business calculations modeling revenue as App Price × Installs, enabling paid application monetization analysis.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card glass-card">
+                    <div class="feature-icon icon-orange">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                    </div>
+                    <h3 class="feature-title">Sentiment Subjectivity</h3>
+                    <p class="feature-desc">Calculates and merges average user review sentiment subjectivity with Play Store metadata to discover correlations with ratings.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card glass-card">
+                    <div class="feature-icon icon-pink">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3 class="feature-title">Time-based Rendering</h3>
+                    <p class="feature-desc">Visualizations are protected by timezone-aware scheduling, displaying charts only during specific hours of the day (IST).</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card glass-card">
+                    <div class="feature-icon icon-cyan">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Data Preprocessing</h3>
+                    <p class="feature-desc">Robust regex patterns parsing ratings, formatting sizes into numerical MB values, and correcting date/version structures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Development Stack</span>
+                <h2 class="section-title">Technologies Used</h2>
+                <p class="section-subtitle">This analysis and portfolio dashboard was developed using modern open-source technologies.</p>
+            </div>
+
+            <div class="tech-grid">
+                <!-- Python -->
+                <div class="tech-card glass-card">
+                    <div class="tech-icon-wrapper">
+                        <!-- Python Logo SVG -->
+                        <svg width="40" height="40" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M54.8 2.2C25.8 2.2 28.1 14.7 28.1 14.7L28.2 27.5H55.4V31.3H17.2C17.2 31.3 2.2 29.4 2.2 58.7C2.2 88 15.6 86.4 15.6 86.4H27.9V71.9C27.9 71.9 26.9 54.4 44.4 54.4H71.9V28.1C71.9 28.1 73.8 2.2 54.8 2.2ZM43.4 11.2C45.9 11.2 47.9 13.2 47.9 15.7C47.9 18.2 45.9 20.2 43.4 20.2C40.9 20.2 38.9 18.2 38.9 15.7C38.9 13.2 40.9 11.2 43.4 11.2Z" fill="#3776AB"/>
+                            <path d="M55.2 107.8C84.2 107.8 81.9 95.3 81.9 95.3L81.8 82.5H54.6V78.7H92.8C92.8 78.7 107.8 80.6 107.8 51.3C107.8 22 94.4 23.6 94.4 23.6H82.1V38.1C82.1 38.1 83.1 55.6 65.6 55.6H38.1V81.9C38.1 81.9 36.2 107.8 55.2 107.8ZM66.6 98.8C64.1 98.8 62.1 96.8 62.1 94.3C62.1 91.8 64.1 89.8 66.6 89.8C69.1 89.8 71.1 91.8 71.1 94.3C71.1 96.8 69.1 98.8 66.6 98.8Z" fill="#FFE873"/>
+                        </svg>
+                    </div>
+                    <span class="tech-name">Python</span>
+                </div>
+
+                <!-- Pandas -->
+                <div class="tech-card glass-card">
+                    <div class="tech-icon-wrapper">
+                        <!-- Pandas SVG Icon -->
+                        <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="120" height="120" rx="20" fill="#150458"/>
+                            <rect x="25" y="30" width="15" height="60" fill="#E70488"/>
+                            <rect x="52" y="45" width="15" height="45" fill="#3B82F6"/>
+                            <rect x="80" y="60" width="15" height="30" fill="#FFE873"/>
+                        </svg>
+                    </div>
+                    <span class="tech-name">Pandas</span>
+                </div>
+
+                <!-- NumPy -->
+                <div class="tech-card glass-card">
+                    <div class="tech-icon-wrapper">
+                        <!-- NumPy SVG Icon -->
+                        <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="120" height="120" rx="20" fill="#013243"/>
+                            <path d="M60 20L95 40V80L60 100L25 80V40L60 20Z" stroke="#4dabf7" stroke-width="6" fill="none"/>
+                            <path d="M60 20V100M25 40L95 80M25 80L95 40" stroke="#4dabf7" stroke-width="4"/>
+                        </svg>
+                    </div>
+                    <span class="tech-name">NumPy</span>
+                </div>
+
+                <!-- Plotly -->
+                <div class="tech-card glass-card">
+                    <div class="tech-icon-wrapper">
+                        <!-- Plotly SVG Icon -->
+                        <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="120" height="120" rx="20" fill="#1e293b"/>
+                            <path d="M25 90V65L45 50L70 70L95 30V90H25Z" fill="url(#plotlyGrad)"/>
+                            <defs>
+                                <linearGradient id="plotlyGrad" x1="60" y1="30" x2="60" y2="90" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#3b82f6"/>
+                                    <stop offset="1" stop-color="#8b5cf6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="tech-name">Plotly</span>
+                </div>
+
+                <!-- Jupyter -->
+                <div class="tech-card glass-card">
+                    <div class="tech-icon-wrapper">
+                        <!-- Jupyter SVG Icon -->
+                        <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="120" height="120" rx="20" fill="#fafafa"/>
+                            <circle cx="60" cy="60" r="30" stroke="#f37626" stroke-width="6" fill="none"/>
+                            <circle cx="60" cy="30" r="10" fill="#ea580c"/>
+                            <circle cx="60" cy="90" r="10" fill="#ea580c"/>
+                        </svg>
+                    </div>
+                    <span class="tech-name">Jupyter</span>
+                </div>
+
+                <!-- Git -->
+                <div class="tech-card glass-card">
+                    <div class="tech-icon-wrapper">
+                        <!-- Git SVG Icon -->
+                        <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="120" height="120" rx="20" fill="#F05032"/>
+                            <path d="M85 60L60 35L48 47L60 59V76C56 77 53 81 53 85C53 90 57 94 62 94C67 94 71 90 71 85C71 81 68 77 64 76V59L73 50L85 60Z" fill="white"/>
+                            <circle cx="62" cy="85" r="5" fill="#F05032"/>
+                            <circle cx="60" cy="35" r="5" fill="white"/>
+                            <circle cx="48" cy="47" r="5" fill="white"/>
+                        </svg>
+                    </div>
+                    <span class="tech-name">Git</span>
+                </div>
+
+                <!-- GitHub -->
+                <div class="tech-card glass-card">
+                    <div class="tech-icon-wrapper">
+                        <!-- GitHub SVG Icon -->
+                        <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="120" height="120" rx="20" fill="#181717"/>
+                            <path d="M60 25c-19.3 0-35 15.7-35 35 0 15.2 9.8 28.1 23.5 32.7 1.8.3 2.4-.8 2.4-1.7v-6.6c-9.7 2.1-11.8-4.7-11.8-4.7-1.6-4-3.9-5-3.9-5-3.2-2.2.2-2.1.2-2.1 3.5.2 5.4 3.6 5.4 3.6 3.1 5.3 8.2 3.8 10.2 2.9.3-2.3 1.2-3.8 2.2-4.7-7.8-.9-15.9-3.9-15.9-17.3 0-3.8 1.4-6.9 3.6-9.3-.4-.9-1.6-4.4.3-9.2 0 0 2.9-.9 9.6 3.6a33 33 0 0117.5 0c6.7-4.5 9.6-3.6 9.6-3.6 1.9 4.8.7 8.3.3 9.2 2.2 2.4 3.6 5.5 3.6 9.3 0 13.4-8.2 16.4-16 17.2 1.2 1.1 2.4 3.1 2.4 6.3V86c0 .9.6 2.1 2.4 1.7C85.2 88.1 95 75.2 95 60c0-19.3-15.7-35-35-35z" fill="white"/>
+                        </svg>
+                    </div>
+                    <span class="tech-name">GitHub</span>
+                </div>
+
+                <!-- Vercel -->
+                <div class="tech-card glass-card">
+                    <div class="tech-icon-wrapper">
+                        <!-- Vercel SVG Icon -->
+                        <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="120" height="120" rx="20" fill="#000000"/>
+                            <polygon points="60,30 95,90 25,90" fill="white"/>
+                        </svg>
+                    </div>
+                    <span class="tech-name">Vercel</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container about-container">
+            <div class="about-info">
+                <span class="section-tag">Case Study</span>
+                <h2 class="section-title">About the Project</h2>
+                <p class="about-text">This project performs an end-to-end data analytics and business intelligence study of the Android mobile application marketplace. By merging application metadata with aggregated user reviews, we extract high-value insights regarding rating dynamics, pricing models, and user sentiments.</p>
+                
+                <div class="about-details">
+                    <div class="about-detail-item">
+                        <div class="about-detail-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <div>
+                            <h4>SaaS Business Rules</h4>
+                            <p>Every analysis applies strict multi-stage constraints mimicking corporate database filters (size limits, text lengths, content tiers).</p>
+                        </div>
+                    </div>
+                    <div class="about-detail-item">
+                        <div class="about-detail-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                        </div>
+                        <div>
+                            <h4>Dynamic Date/Time Gating</h4>
+                            <p>Visualizations are contextually scheduled using timezone-aware logic to only render during optimal hours of the business day.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Grid -->
+            <div class="about-card glass-card">
+                <h3 class="about-card-title">Dataset & Architecture</h3>
+                <div class="about-list">
+                    <div class="about-list-item">
+                        <strong>Raw Data Source:</strong>
+                        <span>10,841 Apps & 64,295 Reviews</span>
+                    </div>
+                    <div class="about-list-item">
+                        <strong>Pre-processing:</strong>
+                        <span>Sizes parsed to MB, dates converted to timestamps, text stripped of numbers.</span>
+                    </div>
+                    <div class="about-list-item">
+                        <strong>Sentiment Integration:</strong>
+                        <span>Polarity and subjectivity metrics aggregated and merged from review datasets.</span>
+                    </div>
+                    <div class="about-list-item">
+                        <strong>Dashboard Platform:</strong>
+                        <span>Vercel-hosted vanilla web application with embedded Plotly HTML engines.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="#" class="logo">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm4.25 11l-5.5 3.5A.5.5 0 0 1 10 16V9a.5.5 0 0 1 .75-.43l5.5 3.5a.5.5 0 0 1 0 .86z" fill="url(#footerGradient)"/>
+                        <defs>
+                            <linearGradient id="footerGradient" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#3b82f6"/>
+                                <stop offset="1" stop-color="#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span>PlayStore Analytics</span>
+                </a>
+                <p class="footer-copy">&copy; 2026 PlayStore Analytics. All rights reserved.</p>
+                <p class="footer-dev">Developed by <strong>Prathamesh Kambli</strong></p>
+            </div>
+            
+            <div class="footer-right">
+                <a href="https://github.com/prathamesh-1105/Google-Play-Store-Analytics" target="_blank" rel="noopener noreferrer" class="btn-github">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>View GitHub Project</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS script -->
+    <script src="script.js"></script>
+</body>
+</html>

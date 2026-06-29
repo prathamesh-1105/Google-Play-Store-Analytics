@@ -37,6 +37,17 @@ Google-Play-Store-Analytics/
 ├── .gitignore                      # Git configuration to ignore temporary/cached files
 ├── README.md                       # Project documentation and guide
 ├── requirements.txt                # List of required python packages
+├── index.html                      # Core HTML layout for the portfolio website
+├── style.css                       # Apple-inspired stylesheet with responsive glassmorphism
+├── script.js                       # JavaScript interactions, stats counters, dynamic modal charts
+├── copy_charts.py                  # Helper script to copy Plotly HTML files to charts/
+├── charts/                         # Compiled Plotly interactive HTML files (for Vercel deployment)
+│   ├── task1_chart.html
+│   ├── task2_chart.html
+│   ├── task3_chart.html
+│   ├── task4_chart.html
+│   ├── task5_chart.html
+│   └── task6_chart.html
 ├── data/                           # Folder containing play store CSV datasets
 │   ├── Play Store Data.csv         # Raw applications dataset
 │   └── User Reviews.csv            # Raw user reviews dataset
@@ -323,6 +334,44 @@ To set up the project locally, follow these steps:
    * Navigate to the `notebooks/` folder inside the Jupyter browser.
    * Open [Google_Play_Store_Analytics.ipynb](file:///c:/Users/Prathamesh/Desktop/Google_Playstore_Project/notebooks/Google_Play_Store_Analytics.ipynb).
    * Click **Cell -> Run All** from the top menu to run the analysis.
+
+---
+
+## 🌐 Vercel Deployment Instructions
+
+The project is preconfigured to deploy directly on Vercel as a high-performance portfolio website.
+
+### Local Compilation
+
+To copy the latest interactive Plotly charts to the web server's asset directory before deployment:
+1. Run the chart compiler script at the project root:
+   ```bash
+   python copy_charts.py
+   ```
+2. This creates or updates the `charts/` folder in the root, copying all six `taskX_chart.html` files.
+
+### Deploying to Vercel
+
+#### Method 1: Using the Vercel Git Integration (Recommended)
+1. Commit and push your latest code to your GitHub repository:
+   ```bash
+   git add -A
+   git commit -m "Deploy interactive portfolio website to Vercel"
+   git push origin main
+   ```
+2. Go to the [Vercel Dashboard](https://vercel.com) and click **Add New -> Project**.
+3. Import your **Google-Play-Store-Analytics** repository.
+4. Keep the default settings (Vercel automatically detects the static HTML/CSS/JS architecture) and click **Deploy**.
+5. Once complete, Vercel will host your website on a production-ready live URL.
+
+#### Method 2: Using the Vercel CLI
+If you have Vercel CLI installed:
+1. From the project root, run:
+   ```bash
+   vercel
+   ```
+2. Follow the setup prompts to link and deploy your static files.
+3. Run `vercel --prod` to deploy directly to production.
 
 ---
 
