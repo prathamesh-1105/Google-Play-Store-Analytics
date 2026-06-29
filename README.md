@@ -54,10 +54,22 @@ Google-Play-Store-Analytics/
     │   ├── task2_chart.html        # Interactive chart (HTML)
     │   ├── task2_chart.png         # Static chart (PNG)
     │   └── task2_summary.csv       # Summary data table (CSV)
-    ├── Task_3/                     # Placeholder for Task 3
-    ├── Task_4/                     # Placeholder for Task 4
-    ├── Task_5/                     # Placeholder for Task 5
-    └── Task_6/                     # Placeholder for Task 6
+    ├── Task_3/                     # Deliverables for Task 3
+    │   ├── task3_chart.html        # Interactive chart (HTML)
+    │   ├── task3_chart.png         # Static chart (PNG)
+    │   └── task3_summary.csv       # Summary data table (CSV)
+    ├── Task_4/                     # Deliverables for Task 4
+    │   ├── task4_chart.html        # Interactive chart (HTML)
+    │   ├── task4_chart.png         # Static chart (PNG)
+    │   └── task4_summary.csv       # Summary data table (CSV)
+    ├── Task_5/                     # Deliverables for Task 5
+    │   ├── task5_chart.html        # Interactive chart (HTML)
+    │   ├── task5_chart.png         # Static chart (PNG)
+    │   └── task5_summary.csv       # Summary data table (CSV)
+    └── Task_6/                     # Deliverables for Task 6
+        ├── task6_chart.html        # Interactive chart (HTML)
+        ├── task6_chart.png         # Static chart (PNG)
+        └── task6_summary.csv       # Summary data table (CSV)
 ```
 
 ---
